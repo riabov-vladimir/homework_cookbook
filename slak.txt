@@ -1,0 +1,26 @@
+def get_cook_book():
+    #логика получения словаря
+    cook_book = {
+    }
+    return cook_book
+def get_shop_list_by_dishes(dishes, person_count):
+    # получаем книгу рецептов
+    cook_book = get_cook_book()
+    result = {}
+    for dish in dishes:
+        # основная логика и получения результата
+        pass
+    return result
+# Вызов
+get_shop_list_by_dishes(['Запеченный картофель', 'Омлет'], 2)
+
+d = {}
+with open("dict.txt") as f:
+for line in f:
+    (key, val) = line.split()
+    d[int(key)] = val
+
+print (d)
+The output shows contents of file in dictionary form
+
+{1: 'aaa', 2: 'bbb', 3: 'ccc'}
