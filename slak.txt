@@ -12,6 +12,8 @@ def get_shop_list_by_dishes(dishes, person_count):
         pass
     return result
 # Вызов
+
+
 get_shop_list_by_dishes(['Запеченный картофель', 'Омлет'], 2)
 
 d = {}

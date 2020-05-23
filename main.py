@@ -1,19 +1,31 @@
-with open('recipes.txt', 'r') as file:
-	print(file.read())
+cook_book = {} # ключи - названия блюд, значения - списки из словарей с игредиентами
 
-cook_book = {'dish': [{'ingredient_name': [], 'quantity': [], 'measure': []}]}
-a = {'ingredient_name': None, 'quantity': None, 'measure': None}
-# b = '666'
-# a['quantity'].append(b)
 
-print(a)
+def ingredient(ing_line):
+	'''Функция, которая принимает строку с ингридиентами и возвращает словарь'''
+	ing_line = ing_line.split(' | ')
+	a = {}
+	a['ingredient_name'] = ing_line[0]
+	a['quantity'] = ing_line[1]
+	a['measure'] = ing_line[2].strip()
+	return a
 
-c = 'Винный уксус | 1 | ст.л'
 
-d = c.split(' | ')
-print(d)
-a['ingredient_name'] = d[0]
-a['quantity'] = d[1]
-a['measure'] = d[2]
+def txt_to_dict(file_name, dict):
+	'''Основная функция, конвертирующая наш файл в словарь. Принимает в качестве аргументов имя файла и название
+	словаря'''
+	with open(file_name, 'r') as file:
+		for line in file:
+			if len(line) == 2:
+				pass
+			elif len(line) == 1:
+				pass
+			elif '|' not in line:
+				temp = line.strip()
+			elif '|' in line:
+				dict.setdefault(temp, [])
+				dict[temp].append(ingredient(line))
+	return dict
 
-print(a)
+print(txt_to_dict('recipes.txt', cook_book))
+
